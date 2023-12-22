@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
- 
-<div class="bg" id="diagonal-line"></div>
-<div class="bg bg2" id="diagonal-line"></div>
-<div class="bg bg3" id="diagonal-line"></div>
- 
+
 
 
 
@@ -15,31 +11,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/master.css">
     <title>Liang Yon Lin</title>
+    <style>
+      body {
+        /* Set the background image and specify its path */
+        background-image: url('images\\wp1812839.jpg');
+              
+        /* Set background size to cover the entire viewport */
+        background-size: cover;
+        
+        /* Center the background image */
+        background-position: center;
+        
+        /* Set a fixed background attachment */
+        background-attachment: fixed;
+        
+        /* Add some styles to improve visibility of text/content on top of the background */
+        color: #ffffff; /* Set text color to white */
+        padding: 20px; /* Add padding for better readability */
+      
+
+      }
+    </style>
 </head>
 <body>
     <div class="container">
-      <header>
-        <div class="left">
-          <h1>
-            <a href="#" id="move-left-link">Welcome </a>
-            <p class="sub-heading"> 
-              <a href="#">To Liang Yon Lin </a>
+
+      <div>
+        <section>
+          <header>
+            <div class="left">
+              <h1>
+                <a href="#" id="move-left-link">Welcome </a>
+                <p class="sub-heading"> 
+                  <a href="#">To Liang Yon Lin </a>
+                </p>
+              </h1>
+            </div>
+          </header>
+
+        </section>
+        <section>
+          <div class="resume-container">
+            <!-- Add your resume content here -->
+            <h1>Yon Lin Brandon Liang</h1>
+            <h3>Education</h3>
+            <ul>
+              <li>University of Toronto - Bachelor of Science - Mathematics and CS</li>
+            </ul>
+            <h3>Experience</h3>
+              <ul>
+                <li>Software Developer at Ontario Ministry of Health - 2021~2022</li>
+                <ul>
+                  <li>
+                    Prototyped, tested, and developed key features for a Full Stack MERN based project, deployed through Azure
+                    CI/CD and Docker
+                  </li>
+                  <li>
+                    ▪ Implemented archiving feature for tables to decrease users’ load times by up to 5 seconds for relevant calls
+                  </li>
+                  <li>
+                    ▪ Developed an integrated Excel library for React that supports in-browser sheet modifications for users
+                  </li>
+                  <li>
+                    ▪ Took initiative to improve main page load times by 200% by employing more efficient table indexing
+                  </li>
+                  <li>
+                    ▪ Migrated old VBA/Java code to new Javascript/Typescript standards and SOLID design principles
+                  </li>
+                </ul>
+                <!-- Add more resume sections as needed -->
+              </ul>
+            <h3>A little about me</h3>
+            <p> I'm Brandon, a recent graduate from the University of Toronto and bubble tea enjoyer. 
+              In my own time I enjoy looking for new places to explore and good food to eat around the city.
+              As an aspiring software developer, I am always interested in picking up new ideas and 
+              technologies so that I can keep learning and developing my skillset.
             </p>
-          </h1>
+            <p>
 
-        </div>
-
-        <div class="cube-container">
-          <div class="cube">
-            <div class="cube-face front"> sample text </div>
-            <div class="cube-face back"> </div>
-            <div class="cube-face left">  </div>
-            <div class="cube-face right">  </div>
-            <div class="cube-face top"> </div>
-            <div class="cube-face bottom"> </div>
+            </p>
           </div>
-        </div>
-      </header>
+        </section>
+        <section>
+          <div class="resume-container">
+            <h1>Projects</h1>
+            <p>WIP</p>
+          </div>
+        </section>
+      </div>
+
     </div>
     <script src="main.js"></script>
 </body>
