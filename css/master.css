@@ -1,18 +1,16 @@
-:root{
-  --cube-width: 300px;
-  --translateZdef: 150px;
-}
-
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
   font-family: "Poppins", sans-serif;
-  background: #000;
+}
+
+html{
+  scroll-snap-type: y mandatory;
 }
 
 header {
-  color: #fff;
+
   display: flex;
   align-items: center;
   height: 100vh;
@@ -34,91 +32,23 @@ header .sub-heading {
   margin: 0;
 }
 
-
-
-
-/* Cube stuff here */
-
-.cube-container {
-  perspective: 1000px;
+div {
+  font-family:monospace;
 }
-
-.cube-container .cube {
-  width: var(--cube-width);
-  height: var(--cube-width);
-  transform-style: preserve-3d;
-}
-
-
-.cube-container .cube-face{
-  width: var(--cube-width);
-  height: var(--cube-width);
-  font-size: 30px;
-  background: cyan;
-  color: black;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-
-}
-
-.cube-container .front{
-  background: silver;
-  transform: translateZ(var(--translateZdef))
-}
-
-.cube-container .back {
-  background: tan;
-  transform: rotateY(180deg) translateZ(var(--translateZdef));
-}
-
-.cube-container .left{
-  background: teal;
-  transform: rotateY(-90deg) translateZ(var(--translateZdef));
-}
-
-
-.cube-container .right{
-  background: thistle;
-  transform: rotateY(90deg) translateZ(var(--translateZdef))
-}
-.cube-container .top{
-  background: sandybrown;
-  transform: rotateX(90deg) translateZ(var(--translateZdef))
-}
-.cube-container .bottom{
-  background: azure;
-  transform: rotateX(-90deg) translateZ(var(--translateZdef))
-}
-
-
-
-
-
-
-/* Background stuff here */
-.bg {
-  animation:slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-65deg, azure 50%, rgb(41, 40, 40) 50%);
-  box-shadow: 0 0 300px rgba(20, 0, 0, 0.5);
-  bottom:0;
-  left:-50%;
-  opacity:.5;
-  position:fixed;
-  right:-50%;
-  top:0;
-  z-index:-1;
-}
-
-
-
-
 
 
 
 /* Generics here */
+
+.resume-container {
+  background-color: #54b3d6e8; /* Transparent white background */
+  border-radius: 20px; /* Rounded corners */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+  width: 100%;
+  max-width: 90%;
+  color: rgb(255, 255, 255);
+}
 
 .content {
   background-color:rgba(255,255,255,.8);
@@ -126,18 +56,24 @@ header .sub-heading {
   box-shadow:0 0 .25em rgba(0,0,0,.25);
   box-sizing:border-box;
   left:50%;
-  padding:10vmin;
+  padding:10px;
   position:fixed;
   text-align:center;
   top:50%;
   transform:translate(-50%, -50%);
 }
 
-
+section{
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
 
 h1 {
   font-family:monospace;
-
+}
+h3 {
+  font-family:monospace;
 }
 
 a {
@@ -148,6 +84,10 @@ a {
   padding: 0 .25rem;
   margin: 0 -.25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+ul{
+  list-style-type: none;
 }
 
 a:hover {
