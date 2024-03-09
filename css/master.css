@@ -48,6 +48,8 @@ div {
   width: 100%;
   max-width: 90%;
   color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .content {
