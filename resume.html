@@ -8,6 +8,14 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
+    <style>
+        .pdf-container {
+            width: 100%;
+            height: 80vh;
+            border: 1px solid #ccc;
+        }
+    </style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js"></script>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -23,6 +31,7 @@
                     </header>
 
 				<!-- Menu -->
+				 
                     <nav id="menu">
                         <ul class="links">
 							<li><a href="index.html">Home</a></li>
@@ -34,6 +43,15 @@
                     </nav>
 
 				<!-- Main -->
+				<section id="one">
+					<iframe
+						src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&scrollbar=0"
+						frameBorder="0"
+						scrolling="auto"
+						height="600px"
+						width="100%"
+					></iframe>
+				</section>
 
 
 
@@ -55,6 +73,11 @@
 			</div>
 
 		<!-- Scripts -->
+			<script>
+				PDFObject.embed("/images/resume.pdf", "#pdf-viewer", {
+					fallbackLink: '<p>Your browser does not support embedded PDFs. <a href="example.pdf">Download the PDF</a>.</p>'
+				});
+			</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
