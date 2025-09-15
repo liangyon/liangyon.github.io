@@ -72,7 +72,7 @@ What excites me most? The moment when clean, efficient code transforms into some
       {
         title: 'Selah Music Library',
         description: 'Developed and deployed a full-stack Next.js/Express.js application with TypeScript and PostgreSQL, creating a digital sheet music library currently serving 20+ active users in production',
-        link: 'https://selah-library.app'
+        link: 'https://www.selah-library.app'
       },
       {
         title: 'Space Invaders',
@@ -103,6 +103,24 @@ What excites me most? The moment when clean, efficient code transforms into some
         description: 'React framework for production'
       },
       {
+        name: 'Tailwind CSS',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+        url: 'https://tailwindcss.com',
+        description: 'Utility-first CSS framework'
+      },
+      {
+        name: 'Express.js',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',
+        url: 'https://expressjs.com',
+        description: 'Fast Node.js web framework'
+      },
+      {
+        name: 'FastAPI',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
+        url: 'https://fastapi.tiangolo.com',
+        description: 'Modern Python web framework'
+      },
+      {
         name: 'Python',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
         url: 'https://python.org',
@@ -113,18 +131,6 @@ What excites me most? The moment when clean, efficient code transforms into some
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
         url: 'https://postgresql.org',
         description: 'Advanced open source database'
-      },
-      {
-        name: 'Tailwind CSS',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-        url: 'https://tailwindcss.com',
-        description: 'Utility-first CSS framework'
-      },
-      {
-        name: 'FastAPI',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
-        url: 'https://fastapi.tiangolo.com',
-        description: 'Modern Python web framework'
       }
     ] as TechStackItem[]
   }
