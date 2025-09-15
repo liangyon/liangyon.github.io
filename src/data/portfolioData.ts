@@ -8,6 +8,7 @@ export interface ProjectItem {
   title: string;
   description: string;
   link: string;
+  techStack: string[];
 }
 
 export interface ContactInfo {
@@ -21,6 +22,23 @@ export interface TechStackItem {
   icon: string;
   url: string;
   description: string;
+}
+
+// Tech icon mapping for projects
+export const techIconMap: Record<string, string> = {
+  'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+  'Express.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',
+  'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+  'PostgreSQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+  'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+  'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
+  'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+  'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+  'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
+  'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+  'FastAPI': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
+  'Android Studio': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg',
+  'Firebase': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg',
 }
 
 export const portfolioData = {
@@ -73,18 +91,21 @@ What excites me most? The moment when clean, efficient code transforms into some
       {
         title: 'Selah Music Library',
         description: 'Developed and deployed a full-stack Next.js/Express.js application with TypeScript and PostgreSQL, creating a digital sheet music library currently serving 20+ active users in production',
-        link: 'https://www.selah-library.app'
+        link: 'https://www.selah-library.app',
+        techStack: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL', 'React']
       },
       {
         title: 'Space Invaders',
         description: 'Developed a flexible Java game engine and created a classic Space Invaders game as a proof of concept. Utilized established design patterns to streamline game object management.',
-        link: 'https://github.com/liangyon/phase-1'
+        link: 'https://github.com/liangyon/phase-1',
+        techStack: ['Java', 'Android Studio', 'Firebase']
       },
-      {
-        title: 'Startup-kit Initiative',
-        description: 'Created a dynamic MERN social-media-like web app for the Kenyan tech scene, enabling 50+ startups to connect with 100+ potential investors',
-        link: 'https://github.com/liangyon/Startup-Kit'
-      }
+      // {
+      //   title: 'Startup-kit Initiative',
+      //   description: 'Created a dynamic MERN social-media-like web app for the Kenyan tech scene, enabling 50+ startups to connect with 100+ potential investors',
+      //   link: 'https://github.com/liangyon/Startup-Kit',
+      //   techStack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JavaScript']
+      // }
     ] as ProjectItem[]
   },
   contact: {
