@@ -153,6 +153,23 @@ export default function Portfolio() {
                   <p className="text-slate-400 text-sm">Let&apos;s connect</p>
                 </div>
               </a>
+              
+              <a 
+                href={contactData.resume} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group flex items-center space-x-4 bg-slate-800/50 hover:bg-slate-800/80 border border-slate-700 hover:border-blue-500/50 rounded-xl p-6 transition-all duration-300 hover:scale-105 min-w-[200px]"
+              >
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <svg className="w-10 h-10 fill-slate-300 group-hover:fill-blue-400 transition-colors" viewBox="0 0 24 24">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="text-white font-semibold text-lg group-hover:text-blue-400 transition-colors">Resume</h3>
+                  <p className="text-slate-400 text-sm">Download PDF</p>
+                </div>
+              </a>
             </div>
           </div>
         )

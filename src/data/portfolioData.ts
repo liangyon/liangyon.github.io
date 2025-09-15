@@ -13,6 +13,7 @@ export interface ProjectItem {
 export interface ContactInfo {
   github: string;
   linkedin: string;
+  resume: string;
 }
 
 export interface TechStackItem {
@@ -90,7 +91,8 @@ What excites me most? The moment when clean, efficient code transforms into some
     title: 'Contact',
     content: {
       github: 'https://github.com/liangyon',
-      linkedin: 'https://linkedin.com/in/liangyon'
+      linkedin: 'https://linkedin.com/in/liangyon',
+      resume: '/Brandon\'s Resume.pdf'
     } as ContactInfo
   },
   techStack: {
