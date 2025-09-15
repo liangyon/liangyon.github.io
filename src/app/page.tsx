@@ -116,7 +116,7 @@ export default function Portfolio() {
         return (
           <div className="space-y-8">
             <p className="text-slate-300 text-xl leading-relaxed animate-fade-in-up animation-delay-600 max-w-2xl mx-auto">
-              Let's connect! Feel free to reach out through any of these platforms.
+              Let&apos;s connect! Feel free to reach out through any of these platforms.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in-up" style={{animationDelay: '0.8s'}}>
@@ -150,7 +150,7 @@ export default function Portfolio() {
                 </div>
                 <div className="text-left">
                   <h3 className="text-white font-semibold text-lg group-hover:text-blue-400 transition-colors">LinkedIn</h3>
-                  <p className="text-slate-400 text-sm">Let's connect</p>
+                  <p className="text-slate-400 text-sm">Let&apos;s connect</p>
                 </div>
               </a>
             </div>
