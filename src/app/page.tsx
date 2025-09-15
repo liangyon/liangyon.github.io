@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { portfolioData, type ExperienceItem, type ProjectItem, type ContactInfo, type TechStackItem } from '@/data/portfolioData'
+import { portfolioData, type ExperienceItem, type ProjectItem, type ContactInfo, type TechStackItem, techIconMap } from '@/data/portfolioData'
 
 const sections = [
   { id: 'about', title: 'About' },
@@ -74,14 +74,17 @@ export default function Portfolio() {
       case 'experience':
         return (
           <div className="space-y-8 text-left">
+            <p className="text-slate-400 text-sm text-center leading-tight">
+              I'm a Software Developer with 2 Years! Here are some of my experiences
+            </p>
             {portfolioData.experience.content.map((job: ExperienceItem, index: number) => (
               <div key={index} className={`space-y-3 animate-fade-in-up`} style={{animationDelay: `${0.6 + index * 0.2}s`}}>
                 <h4 className="text-xl font-semibold text-blue-400">{job.title}</h4>
                 <p className="text-sm text-slate-400">{job.date}</p>
                 <ul className="space-y-2 text-slate-300">
-                  {job.points.slice(0, 2).map((point: string, pointIndex: number) => (
+                  {job.points.slice(0, 5).map((point: string, pointIndex: number) => (
                     <li key={pointIndex} className="flex items-start">
-                      <span className="text-blue-400 mr-3 mt-1 flex-shrink-0">•</span>
+                      <span className="text-blue-400 mr-3 mt-1 flex-shrink-0"></span>
                       <span className="leading-relaxed">{point}</span>
                     </li>
                   ))}
@@ -93,19 +96,61 @@ export default function Portfolio() {
       
       case 'projects':
         return (
-          <div className="space-y-8 text-left">
+          <div className="space-y-8">
             {portfolioData.projects.content.map((project: ProjectItem, index: number) => (
-              <div key={index} className={`space-y-3 animate-fade-in-up`} style={{animationDelay: `${0.6 + index * 0.2}s`}}>
-                <h4 className="text-xl font-semibold text-blue-400">{project.title}</h4>
-                <p className="text-slate-300 leading-relaxed">{project.description.slice(0, 150)}...</p>
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-block text-blue-400 hover:text-blue-300 underline transition-colors"
-                >
-                  View Project →
-                </a>
+              <div 
+                key={index} 
+                className={`bg-slate-800/50 border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800/80 rounded-xl p-8 transition-all duration-300 hover:scale-[1.02] animate-fade-in-up`}
+                style={{animationDelay: `${0.6 + index * 0.2}s`}}
+              >
+                <div className="space-y-6">
+                  {/* Project Title */}
+                  <h4 className="text-2xl font-semibold text-blue-400">{project.title}</h4>
+                  
+                  {/* Project Description */}
+                  <p className="text-slate-300 leading-relaxed text-lg">{project.description}</p>
+                  
+                  {/* Tech Stack Icons */}
+                  <div className="space-y-3 text-center">
+                    <h5 className="text-sm font-medium text-slate-400 uppercase tracking-wider">Built with</h5>
+                    <div className="flex flex-wrap gap-3 justify-center">
+                      {project.techStack.map((tech: string, techIndex: number) => (
+                        <div 
+                          key={techIndex}
+                          className="flex items-center space-x-2 bg-slate-700/50 hover:bg-slate-700/80 rounded-lg px-3 py-2 transition-all duration-200 hover:scale-105"
+                        >
+                          <div className="w-6 h-6 flex items-center justify-center">
+                            <Image 
+                              src={techIconMap[tech] || techIconMap['JavaScript']} 
+                              alt={`${tech} icon`}
+                              width={24}
+                              height={24}
+                              className="w-full h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-200"
+                            />
+                          </div>
+                          <span className="text-slate-300 text-sm font-medium">{tech}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Project Link Button */}
+                  <div className="pt-2">
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center space-x-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-500/50 rounded-lg px-6 py-3 transition-all duration-300 hover:scale-105"
+                    >
+                      <svg className="w-5 h-5 text-blue-400 group-hover:text-blue-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span className="text-blue-400 group-hover:text-blue-300 font-medium transition-colors">
+                        View Project
+                      </span>
+                    </a>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -190,10 +235,10 @@ export default function Portfolio() {
             Brandon Liang
           </h1>
           <p className="text-xl md:text-2xl text-slate-400 mb-8 animate-fade-in-up animation-delay-300">
-            Software Developer & Boba Enthusiast
+            Software Developer & Boba Lover
           </p>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto animate-fade-in-up animation-delay-600">
-            Recent grad from the University of Toronto, aspiring Software Developer
+            Exploring the world, one drink at a time
           </p>
         </div>
       </div>
@@ -211,7 +256,7 @@ export default function Portfolio() {
           </div>
           
           {/* Scrollable Content */}
-          <div className="h-full overflow-y-auto pb-32 md:pb-24">
+          <div className="h-full overflow-y-auto pb-40 md:pb-32">
             <div className="max-w-4xl mx-auto px-4 py-6 md:py-0 text-center">
               <div className="text-slate-300 animate-fade-in-up animation-delay-300">
                 {renderSectionContent(activeSection)}
