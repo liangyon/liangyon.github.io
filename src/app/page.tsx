@@ -75,7 +75,7 @@ export default function Portfolio() {
         return (
           <div className="space-y-8 text-left">
             <p className="text-slate-400 text-sm text-center leading-tight">
-              I'm a Software Developer with 2 Years! Here are some of my experiences
+              A Software Developer with Full Stack and Web Dev proficiency. Here are some of my experiences
             </p>
             {portfolioData.experience.content.map((job: ExperienceItem, index: number) => (
               <div key={index} className={`space-y-3 animate-fade-in-up`} style={{animationDelay: `${0.6 + index * 0.2}s`}}>
