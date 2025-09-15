@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { portfolioData, type ExperienceItem, type ProjectItem, type ContactInfo, type TechStackItem } from '@/data/portfolioData'
 
@@ -31,13 +32,9 @@ export default function Portfolio() {
         const techStackData = portfolioData.techStack.content as TechStackItem[]
         return (
           <div className="space-y-12">
-            <p className="text-slate-300 leading-relaxed text-lg whitespace-pre-line animate-fade-in-up animation-delay-600">
-              {portfolioData.about.content}
-            </p>
-            
-            {/* Tech Stack Section */}
-            <div className="animate-fade-in-up animation-delay-800">
-              <h3 className="text-2xl font-semibold text-blue-400 mb-8 text-center">Technologies I Work With</h3>
+            {/* Tech Stack Section - Now above description */}
+            <div className="animate-fade-in-up animation-delay-600">
+              <h3 className="text-2xl font-semibold text-blue-400 mb-8 text-center">My Tech stack</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-4xl mx-auto">
                 {techStackData.map((tech: TechStackItem, index: number) => (
                   <a
@@ -46,12 +43,14 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`group flex flex-col items-center p-6 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800/80 transition-all duration-300 hover:scale-105 animate-fade-in-up`}
-                    style={{animationDelay: `${1.0 + index * 0.1}s`}}
+                    style={{animationDelay: `${0.8 + index * 0.1}s`}}
                   >
                     <div className="w-16 h-16 mb-4 flex items-center justify-center">
-                      <img 
+                      <Image 
                         src={tech.icon} 
                         alt={`${tech.name} icon`}
+                        width={64}
+                        height={64}
                         className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                       />
                     </div>
@@ -65,6 +64,10 @@ export default function Portfolio() {
                 ))}
               </div>
             </div>
+            
+            <p className="text-slate-300 leading-relaxed text-lg whitespace-pre-line animate-fade-in-up animation-delay-800">
+              {portfolioData.about.content}
+            </p>
           </div>
         )
       
@@ -180,15 +183,22 @@ export default function Portfolio() {
 
       {/* Section Content - Fades in when section is active */}
       {activeSection && (
-        <div className="absolute inset-0 flex items-center justify-center h-full px-4 py-8 animate-fade-in-up overflow-y-auto bg-slate-900">
-          <div className="max-w-4xl w-full pb-24 text-center">
-            <div className="mb-8 animate-fade-in-up">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+        <div className="absolute inset-0 bg-slate-900 animate-fade-in-up">
+          {/* Sticky Title for small screens, centered for larger screens */}
+          <div className="sticky top-0 z-10 bg-slate-900/95 backdrop-blur-md   md:relative md:bg-transparent md:border-b-0 md:backdrop-blur-none">
+            <div className="flex items-center justify-center py-4 md:py-8">
+              <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white animate-fade-in-up">
                 {portfolioData[activeSection as keyof typeof portfolioData].title}
               </h2>
             </div>
-            <div className="text-slate-300 animate-fade-in-up animation-delay-300">
-              {renderSectionContent(activeSection)}
+          </div>
+          
+          {/* Scrollable Content */}
+          <div className="h-full overflow-y-auto pb-32 md:pb-24">
+            <div className="max-w-4xl mx-auto px-4 py-6 md:py-0 text-center">
+              <div className="text-slate-300 animate-fade-in-up animation-delay-300">
+                {renderSectionContent(activeSection)}
+              </div>
             </div>
           </div>
         </div>
@@ -207,7 +217,7 @@ export default function Portfolio() {
                   section.isHome
                     ? (activeSection === null ? 'bg-green-600 text-white hover:bg-green-700' : 'text-green-400 hover:text-green-300 hover:bg-slate-700')
                     : (activeSection === section.id 
-                        ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                        ? 'bg-slate-600 text-white hover:bg-slate-700' 
                         : 'text-slate-300 hover:text-white hover:bg-slate-700')
                 }`}
                 onClick={() => handleSectionClick(section.id)}
