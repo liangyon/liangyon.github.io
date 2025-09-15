@@ -11,20 +11,26 @@ export interface ProjectItem {
 }
 
 export interface ContactInfo {
-  email: string;
-  phone: string;
-  location: string;
   github: string;
   linkedin: string;
+}
+
+export interface TechStackItem {
+  name: string;
+  icon: string;
+  url: string;
+  description: string;
 }
 
 export const portfolioData = {
   about: {
     title: 'About',
-    content: `I'm Brandon, a recent graduate from the University of Toronto and bubble tea enjoyer. 
-    In my own time I enjoy looking for new places to explore and good food to eat around the city.
-    
-    As an aspiring developer, I am always interested in picking up new ideas and technologies so that I can keep learning and developing my skillset. I'm most proficient in Python and Java, but also comfortable with Javascript and C. In terms of frameworks, I am familiar with the common full-stack choices such as Spring, Django, Flask, and React, Angular Etc.`
+    content: `Hi, I'm Brandon! I'm a passionate software developer and recent University of Toronto graduate who believes great code starts with great coffee (or bubble tea). When I'm not building digital solutions, you'll find me exploring Vancouver's neighborhoods, hunting for the perfect bowl of ramen, or discovering new local spots.
+
+I'm driven by curiosity and the endless possibilities that technology brings to solving real-world problems. My experience spans from hospital budget systems serving hundreds of facilities to rideshare platforms handling thousands of daily transactions. I thrive in full-stack environments where I can bring ideas to life from database to user interface.
+
+What excites me most? The moment when clean, efficient code transforms into something that genuinely improves people's lives – whether it's streamlining workflows, connecting communities, or simply making someone's day a little easier.`
+
   },
   experience: {
     title: 'Experience',
@@ -83,11 +89,43 @@ export const portfolioData = {
   contact: {
     title: 'Contact',
     content: {
-      email: 'brandon121511@gmail.com',
-      phone: '(604) 603-9298',
-      location: 'Canada (Open to relocation, seeking roles in the US)',
       github: 'https://github.com/liangyon',
       linkedin: 'https://linkedin.com/in/liangyon'
     } as ContactInfo
+  },
+  techStack: {
+    title: 'Tech Stack',
+    content: [
+      {
+        name: 'Next.js',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+        url: 'https://nextjs.org',
+        description: 'React framework for production'
+      },
+      {
+        name: 'Python',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+        url: 'https://python.org',
+        description: 'Versatile programming language'
+      },
+      {
+        name: 'PostgreSQL',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+        url: 'https://postgresql.org',
+        description: 'Advanced open source database'
+      },
+      {
+        name: 'Tailwind CSS',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+        url: 'https://tailwindcss.com',
+        description: 'Utility-first CSS framework'
+      },
+      {
+        name: 'FastAPI',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
+        url: 'https://fastapi.tiangolo.com',
+        description: 'Modern Python web framework'
+      }
+    ] as TechStackItem[]
   }
 }
