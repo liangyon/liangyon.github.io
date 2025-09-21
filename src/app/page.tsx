@@ -277,7 +277,7 @@ export default function Portfolio() {
                 size="sm"
                 className={`transition-all duration-300 ${
                   section.isHome
-                    ? (activeSection === null ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'text-primary hover:text-primary/80 hover:bg-accent')
+                    ? (activeSection === null ? 'bg-primary text-primary-foreground ' : 'text-primary hover:text-primary/80 hover:bg-accent')
                     : (activeSection === section.id 
                         ? 'bg-accent text-accent-foreground hover:bg-accent/80' 
                         : 'text-muted-foreground hover:text-foreground hover:bg-accent')
