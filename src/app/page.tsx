@@ -100,7 +100,7 @@ export default function Portfolio() {
             {portfolioData.projects.content.map((project: ProjectItem, index: number) => (
               <div 
                 key={index} 
-                className={`bg-card border border-border hover:border-primary/50 hover:bg-accent rounded-xl p-8 transition-all duration-300 hover:scale-[1.02] animate-fade-in-up`}
+                className={`bg-card border border-border hover:border-primary/50 hover:bg-accent rounded-xl p-8 transition-all duration-300  animate-fade-in-up`}
                 style={{animationDelay: `${0.3 + index * 0.1}s`}}
               >
                 <div className="space-y-6">
