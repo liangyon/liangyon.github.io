@@ -245,9 +245,9 @@ export default function Portfolio() {
 
       {/* Section Content - Fades in when section is active */}
       {activeSection && (
-        <div className="absolute inset-0 bg-background animate-fade-in-up">
+        <div className="absolute inset-0 bg-background animate-fade-in-up flex flex-col">
           {/* Sticky Title for small screens, centered for larger screens */}
-          <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-md   md:relative md:bg-transparent md:border-b-0 md:backdrop-blur-none">
+          <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-md md:relative md:bg-transparent md:border-b-0 md:backdrop-blur-none flex-shrink-0">
             <div className="flex items-center justify-center py-4 md:py-8">
               <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground animate-fade-in-up">
                 {portfolioData[activeSection as keyof typeof portfolioData].title}
@@ -256,11 +256,13 @@ export default function Portfolio() {
           </div>
           
           {/* Scrollable Content */}
-          <div className="h-full overflow-y-auto pb-40 md:pb-32">
+          <div className="flex-1 overflow-y-auto">
             <div className="max-w-4xl mx-auto px-4 py-6 md:py-0 text-center">
               <div className="text-foreground animate-fade-in-up animation-delay-300">
                 {renderSectionContent(activeSection)}
               </div>
+              {/* Extra spacing to ensure content can scroll above footer */}
+              <div className="h-24 sm:h-20 md:h-16"></div>
             </div>
           </div>
         </div>
@@ -268,14 +270,14 @@ export default function Portfolio() {
 
       {/* Sticky Footer Navigation */}
       <div className="fixed bottom-0 left-0 right-0 z-20 bg-card/95 backdrop-blur-md border-t border-border">
-        <div className="flex justify-center items-center px-4 py-3">
-          <div className="flex space-x-1 bg-secondary/50 rounded-lg p-1">
+        <div className="flex justify-center items-center px-4 py-2 sm:py-3 min-h-[60px] sm:min-h-[64px]">
+          <div className="flex flex-wrap justify-center space-x-1 bg-secondary/50 rounded-lg p-1">
             {sections.map((section) => (
               <Button
                 key={section.id}
                 variant="ghost"
                 size="sm"
-                className={`transition-all duration-300 ${
+                className={`transition-all duration-300 text-xs sm:text-sm px-2 sm:px-3 py-1.5 sm:py-2 ${
                   section.isHome
                     ? (activeSection === null ? 'bg-primary text-primary-foreground shadow-md border border-primary/20' : 'text-primary hover:text-primary-foreground hover:bg-primary/80 hover:shadow-sm')
                     : (activeSection === section.id 
