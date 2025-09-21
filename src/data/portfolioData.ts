@@ -68,7 +68,8 @@ What excites me most? The moment when clean, efficient code transforms into some
         title: 'Software Developer - Z-Motors Group',
         date: 'Oct. 2024 - Feb. 2025 (Contract)',
         points: [
-          'Launched a marketing website with Next.js and Decap CMS that improved content update times from 2 hours down to 10 minutes',
+          'Launched a marketing website with Next.js and Decap CMS that reduced operating and maintenance costs by 85% annually',
+          'Enabled non-technical staff to manage content independently, reducing content update workflows by hours',
           'Reduced page load times to under 2 seconds by implementing Next image optimization strategies',
           'Delivered client-side search functionality with debounced inputs and lazy-loaded results, improving interaction speed by 40%'
         ]
