@@ -127,12 +127,6 @@ What excites me most? The moment when clean, efficient code transforms into some
         description: 'React framework for production'
       },
       {
-        name: 'Tailwind CSS',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-        url: 'https://tailwindcss.com',
-        description: 'Utility-first CSS framework'
-      },
-      {
         name: 'Express.js',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',
         url: 'https://expressjs.com',
