@@ -235,10 +235,10 @@ export default function Portfolio() {
             Brandon Liang
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in-up animation-delay-300">
-            Software Developer & Boba Lover
+            Software Developer & Ice cream lover
           </p>
           <p className="text-lg text-muted-foreground/70 max-w-2xl mx-auto animate-fade-in-up animation-delay-600">
-            Exploring the world, one drink at a time
+            Exploring the world, one scoop at a time
           </p>
         </div>
       </div>
