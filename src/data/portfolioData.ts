@@ -1,7 +1,9 @@
 export interface ExperienceItem {
   title: string;
+  company: string;
+  companyIcon: string;
   date: string;
-  points: string[];
+  overview: string;
 }
 
 export interface ProjectItem {
@@ -39,6 +41,8 @@ export const techIconMap: Record<string, string> = {
   'FastAPI': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
   'Android Studio': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg',
   'Firebase': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg',
+  'PySide6': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/qt/qt-original.svg',
+  'Dropbox API': 'https://img.icons8.com/color/48/dropbox.png',
 }
 
 export const portfolioData = {
@@ -55,34 +59,25 @@ What excites me most? The moment when clean, efficient code transforms into some
     title: 'Experience',
     content: [
       {
-        title: 'Software Developer - Optimize Everything',
-        date: 'Mar. 2025 - Present (Contract)',
-        points: [
-          'Developed core rideshare user flows using React/TypeScript frontend with FastAPI microservices, scaled to support 10,000+ daily transactions',
-          'Designed and implemented a secure JWT authentication system with RBAC, refresh token rotation, and validation flow',
-          'Implemented comprehensive test automation covering 85% of critical paths (Jest frontend/Pytest backend)',
-          'Took ownership in key early frontend infrastructure decisions and payment workflow planning'
-        ]
+        title: 'Software Developer',
+        company: 'Optimize Everything',
+        companyIcon: 'https://media.licdn.com/dms/image/v2/D4E0BAQF3yQnZsCMZjw/company-logo_200_200/company-logo_200_200/0/1735839196990?e=1762387200&v=beta&t=0T2Zvr74SERbKgILodqGVX23udcEo09vlpP18fgxT-0',
+        date: 'Mar. 2025 - Present',
+        overview: 'Built rideshare platform with React/TypeScript frontend and FastAPI microservices on GCP. Implemented JWT authentication with RBAC and CI/CD pipelines using Docker, Jest, and Pytest.'
       },
       {
-        title: 'Software Developer - Z-Motors Group',
-        date: 'Oct. 2024 - Feb. 2025 (Contract)',
-        points: [
-          'Launched a marketing website with Next.js and Decap CMS that reduced operating and maintenance costs by 85% annually',
-          'Enabled non-technical staff to manage content independently, reducing content update workflows by hours',
-          'Reduced page load times to under 2 seconds by implementing Next image optimization strategies',
-          'Delivered client-side search functionality with debounced inputs and lazy-loaded results, improving interaction speed by 40%'
-        ]
+        title: 'Web Developer',
+        company: 'Z-Motors Group',
+        companyIcon: 'https://media.licdn.com/dms/image/v2/D560BAQGuRLNvuEJMeg/company-logo_200_200/company-logo_200_200/0/1729224502917/zion_international_trading_group_corp_logo?e=1762387200&v=beta&t=TtBhujr11ABGy1bFBG5xKZ64VDA-4Z_mBp-Md5JERWE',
+        date: 'Oct. 2024 - Feb. 2025',
+        overview: 'Developed marketing website with Next.js and Decap CMS, achieving sub-2s load times and 85% cost reduction through optimization strategies.'
       },
       {
-        title: 'Software Developer - Ontario Ministry of Health',
+        title: 'Software Developer',
+        company: 'Ontario Ministry of Health',
+        companyIcon: 'https://media.licdn.com/dms/image/v2/D4E0BAQHKcm4ehNB-6g/company-logo_200_200/B4EZmgaKBoGYAQ-/0/1759332835908/ontario_ministry_of_health_logo?e=1762387200&v=beta&t=CDJ0uGUBomH8-y9YlHo_meMt9BXfVQm9a5qBCWakiPs',
         date: 'Sept. 2021 - Sept. 2022',
-        points: [
-          'Developed and tested a hospital budget reporting tool to track and analyze departmental spending, serving 200+ facilities',
-          'Built a dynamic reporting dashboard with interactive visualizations, enabling real-time budget insights',
-          'Optimized database queries and implemented efficient archiving that reduced page load times from 8s to 2s',
-          'Designed an in-browser spreadsheet component using React and custom hooks that streamlined data entry workflows'
-        ]
+        overview: 'Created hospital budget reporting tool with React/TypeScript frontend and Node.js/Express.js APIs with MongoDB on Azure, serving 200+ facilities.'
       }
     ] as ExperienceItem[]
   },
@@ -91,22 +86,22 @@ What excites me most? The moment when clean, efficient code transforms into some
     content: [
       {
         title: 'Selah Music Library',
-        description: 'Developed and deployed a full-stack Next.js/Express.js application with TypeScript and PostgreSQL, creating a digital sheet music library currently serving 20+ active users in production',
+        description: 'Full-stack Next.js/Express.js application with TypeScript and PostgreSQL. Digital sheet music library serving 20+ active users with automated metadata processing and Google Drive API integration.',
         link: 'https://www.selah-library.app',
-        techStack: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL', 'React']
+        techStack: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL']
+      },
+      {
+        title: 'Delta Connect',
+        description: 'Cross-platform desktop application with PySide6 GUI for automated game save synchronization. Integrates Dropbox API for seamless cloud-based save management across Windows/Mac/Linux emulators and iOS Delta app.',
+        link: 'https://github.com/liangyon/delta-connect',
+        techStack: ['Python', 'PySide6', 'Dropbox API']
       },
       {
         title: 'Space Invaders',
-        description: 'Developed a flexible Java game engine and created a classic Space Invaders game as a proof of concept. Utilized established design patterns to streamline game object management.',
+        description: 'Flexible Java game engine with classic Space Invaders implementation. Utilizes established design patterns for streamlined game object management.',
         link: 'https://github.com/liangyon/phase-1',
         techStack: ['Java', 'Android Studio', 'Firebase']
-      },
-      // {
-      //   title: 'Startup-kit Initiative',
-      //   description: 'Created a dynamic MERN social-media-like web app for the Kenyan tech scene, enabling 50+ startups to connect with 100+ potential investors',
-      //   link: 'https://github.com/liangyon/Startup-Kit',
-      //   techStack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JavaScript']
-      // }
+      }
     ] as ProjectItem[]
   },
   contact: {
