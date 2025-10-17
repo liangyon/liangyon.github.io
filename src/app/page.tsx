@@ -73,22 +73,38 @@ export default function Portfolio() {
       
       case 'experience':
         return (
-          <div className="space-y-8 text-left">
-            <p className="text-muted-foreground text-sm text-center leading-tight">
+          <div className="space-y-6">
+            <p className="text-muted-foreground text-sm text-center leading-tight mb-8">
               A Software Developer with Full Stack and Web Dev proficiency. Here are some of my experiences
             </p>
             {portfolioData.experience.content.map((job: ExperienceItem, index: number) => (
-              <div key={index} className={`space-y-3 animate-fade-in-up`} style={{animationDelay: `${0.3 + index * 0.1}s`}}>
-                <h4 className="text-xl font-semibold text-primary">{job.title}</h4>
-                <p className="text-sm text-muted-foreground">{job.date}</p>
-                <ul className="space-y-2 text-foreground">
-                  {job.points.slice(0, 5).map((point: string, pointIndex: number) => (
-                    <li key={pointIndex} className="flex items-start">
-                      <span className="text-primary mr-3 mt-1 flex-shrink-0">•</span>
-                      <span className="leading-relaxed">{point}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div 
+                key={index} 
+                className={`bg-card border border-border hover:border-primary/50 hover:bg-accent rounded-xl p-6 transition-all duration-300 animate-fade-in-up`}
+                style={{animationDelay: `${0.3 + index * 0.1}s`}}
+              >
+                <div className="flex items-start gap-4">
+                  {/* Company Icon */}
+                  <div className="flex-shrink-0 w-16 h-16 bg-secondary rounded-lg flex items-center justify-center p-2">
+                    <Image 
+                      src={job.companyIcon} 
+                      alt={`${job.company} logo`}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 space-y-2">
+                    <div>
+                      <h4 className="text-xl font-semibold text-primary">{job.title}</h4>
+                      <p className="text-base text-card-foreground font-medium">{job.company}</p>
+                      <p className="text-sm text-muted-foreground">{job.date}</p>
+                    </div>
+                    <p className="text-foreground leading-relaxed">{job.overview}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
