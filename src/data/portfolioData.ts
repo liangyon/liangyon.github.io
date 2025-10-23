@@ -109,7 +109,7 @@ What excites me most? The moment when clean, efficient code transforms into some
     content: {
       github: 'https://github.com/liangyon',
       linkedin: 'https://linkedin.com/in/liangyon',
-      resume: '/Brandon\'s Resume.pdf'
+      resume: '/Brandon_Liang_Resume.pdf'
     } as ContactInfo
   },
   techStack: {
