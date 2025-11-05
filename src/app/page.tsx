@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { portfolioData, type ExperienceItem, type ProjectItem, type ContactInfo, type TechStackItem, techIconMap } from '@/data/portfolioData'
+import ProjectsBentoGrid from '@/components/ProjectsBentoGrid'
+import ExperienceBentoGrid from '@/components/ExperienceBentoGrid'
 
 const sections = [
   { id: 'about', title: 'About' },
@@ -72,105 +74,10 @@ export default function Portfolio() {
         )
       
       case 'experience':
-        return (
-          <div className="space-y-6">
-            <p className="text-muted-foreground text-sm text-center leading-tight mb-8">
-              A Software Developer with Full Stack and Web Dev proficiency. Here are some of my experiences
-            </p>
-            {portfolioData.experience.content.map((job: ExperienceItem, index: number) => (
-              <div 
-                key={index} 
-                className={`bg-card border border-border hover:border-primary/50 hover:bg-accent rounded-xl p-6 transition-all duration-300 animate-fade-in-up`}
-                style={{animationDelay: `${0.3 + index * 0.1}s`}}
-              >
-                <div className="flex items-start gap-4">
-                  {/* Company Icon */}
-                  <div className="flex-shrink-0 w-16 h-16 bg-secondary rounded-lg flex items-center justify-center p-2">
-                    <Image 
-                      src={job.companyIcon} 
-                      alt={`${job.company} logo`}
-                      width={48}
-                      height={48}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 space-y-2">
-                    <div>
-                      <h4 className="text-xl font-semibold text-primary">{job.title}</h4>
-                      <p className="text-base text-card-foreground font-medium">{job.company}</p>
-                      <p className="text-sm text-muted-foreground">{job.date}</p>
-                    </div>
-                    <p className="text-foreground leading-relaxed">{job.overview}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )
+        return <ExperienceBentoGrid />
       
       case 'projects':
-        return (
-          <div className="space-y-8">
-            {portfolioData.projects.content.map((project: ProjectItem, index: number) => (
-              <div 
-                key={index} 
-                className={`bg-card border border-border hover:border-primary/50 hover:bg-accent rounded-xl p-8 transition-all duration-300  animate-fade-in-up`}
-                style={{animationDelay: `${0.3 + index * 0.1}s`}}
-              >
-                <div className="space-y-6">
-                  {/* Project Title */}
-                  <h4 className="text-2xl font-semibold text-primary">{project.title}</h4>
-                  
-                  {/* Project Description */}
-                  <p className="text-foreground leading-relaxed text-lg">{project.description}</p>
-                  
-                  {/* Tech Stack Icons */}
-                  <div className="space-y-3 text-center">
-                    <h5 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Built with</h5>
-                    <div className="flex flex-wrap gap-3 justify-center">
-                      {project.techStack.map((tech: string, techIndex: number) => (
-                        <div 
-                          key={techIndex}
-                          className="flex items-center space-x-2 bg-secondary hover:bg-secondary/80 rounded-lg px-3 py-2 transition-all duration-200 hover:scale-105"
-                        >
-                          <div className="w-6 h-6 flex items-center justify-center">
-                            <Image 
-                              src={techIconMap[tech] || techIconMap['JavaScript']} 
-                              alt={`${tech} icon`}
-                              width={24}
-                              height={24}
-                              className="w-full h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-200"
-                            />
-                          </div>
-                          <span className="text-secondary-foreground text-sm font-medium">{tech}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Project Link Button */}
-                  <div className="pt-2">
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center space-x-3 bg-primary/10 hover:bg-primary/20 border border-primary/30 hover:border-primary/50 rounded-lg px-6 py-3 transition-all duration-300 hover:scale-105"
-                    >
-                      <svg className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      <span className="text-primary group-hover:text-primary/80 font-medium transition-colors">
-                        View Project
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )
+        return <ProjectsBentoGrid />
       
       case 'contact':
         const contactData = portfolioData.contact.content as ContactInfo
@@ -262,18 +169,20 @@ export default function Portfolio() {
       {/* Section Content - Fades in when section is active */}
       {activeSection && (
         <div className="absolute inset-0 bg-background animate-fade-in-up flex flex-col">
-          {/* Sticky Title for small screens, centered for larger screens */}
-          <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-md md:relative md:bg-transparent md:border-b-0 md:backdrop-blur-none flex-shrink-0">
-            <div className="flex items-center justify-center py-4 md:py-8">
-              <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground animate-fade-in-up">
-                {portfolioData[activeSection as keyof typeof portfolioData].title}
-              </h2>
+          {/* Sticky Title for small screens, centered for larger screens - Hide for projects and experience */}
+          {activeSection !== 'projects' && activeSection !== 'experience' && (
+            <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-md md:relative md:bg-transparent md:border-b-0 md:backdrop-blur-none flex-shrink-0">
+              <div className="flex items-center justify-center py-4 md:py-8">
+                <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground animate-fade-in-up">
+                  {portfolioData[activeSection as keyof typeof portfolioData].title}
+                </h2>
+              </div>
             </div>
-          </div>
+          )}
           
           {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-4xl mx-auto px-4 py-6 md:py-0 text-center">
+            <div className={`${activeSection === 'projects' || activeSection === 'experience' ? 'max-w-full' : 'max-w-4xl'} mx-auto px-4 py-6 md:py-0 ${activeSection === 'projects' || activeSection === 'experience' ? '' : 'text-center'}`}>
               <div className="text-foreground animate-fade-in-up animation-delay-300">
                 {renderSectionContent(activeSection)}
               </div>
