@@ -117,19 +117,6 @@ What excites me most? The moment when clean, efficient code transforms into some
         ]
       },
       {
-        title: 'Selah Music Library',
-        description: 'Full-stack digital sheet music library serving 20+ active users with automated metadata processing and Google Drive API integration.',
-        link: 'https://www.selah-library.app',
-        techStack: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL'],
-        size: 'md',
-        feature: 'metrics',
-        metrics: [
-          { label: 'Active Users', value: 20, suffix: '+', color: 'emerald' },
-          { label: 'Music Sheets', value: 85, suffix: '+', color: 'blue' },
-          { label: 'Uptime', value: 99.9, suffix: '%', color: 'violet' }
-        ]
-      },
-      {
         title: 'Delta Connect',
         description: 'Cross-platform desktop app for automated game save synchronization with Dropbox API.',
         link: 'https://github.com/liangyon/delta-connect',
@@ -142,6 +129,19 @@ What excites me most? The moment when clean, efficient code transforms into some
         link: 'https://github.com/liangyon/phase-1',
         techStack: ['Java', 'Android Studio', 'Firebase'],
         size: 'sm'
+      },
+      {
+        title: 'Selah Music Library',
+        description: 'Full-stack digital sheet music library serving 20+ active users with automated metadata processing and Google Drive API integration.',
+        link: 'https://www.selah-library.app',
+        techStack: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL'],
+        size: 'md',
+        feature: 'metrics',
+        metrics: [
+          { label: 'Active Users', value: 20, suffix: '+', color: 'emerald' },
+          { label: 'Music Sheets', value: 85, suffix: '+', color: 'blue' },
+          { label: 'Uptime', value: 99.9, suffix: '%', color: 'violet' }
+        ]
       }
     ] as ProjectItem[]
   },

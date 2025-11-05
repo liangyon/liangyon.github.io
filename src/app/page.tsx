@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { portfolioData, type ExperienceItem, type ProjectItem, type ContactInfo, type TechStackItem, techIconMap } from '@/data/portfolioData'
+import { portfolioData, type ContactInfo, type TechStackItem } from '@/data/portfolioData'
 import ProjectsBentoGrid from '@/components/ProjectsBentoGrid'
 import ExperienceBentoGrid from '@/components/ExperienceBentoGrid'
 

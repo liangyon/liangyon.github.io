@@ -1,6 +1,6 @@
 "use client";
 
-import { portfolioData, techIconMap } from "@/data/portfolioData";
+import { portfolioData, techIconMap, type ProjectItem } from "@/data/portfolioData";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import {
@@ -11,7 +11,6 @@ import {
 } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -121,8 +120,7 @@ const MetricsFeature = ({
     );
 };
 
-const BentoCard = ({ item, index }: { item: any; index: number }) => {
-    const [isHovered, setIsHovered] = useState(false);
+const BentoCard = ({ item }: { item: ProjectItem }) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     const rotateX = useTransform(y, [-100, 100], [2, -2]);
@@ -143,7 +141,6 @@ const BentoCard = ({ item, index }: { item: any; index: number }) => {
     function handleMouseLeave() {
         x.set(0);
         y.set(0);
-        setIsHovered(false);
     }
 
     const getGridClass = () => {
@@ -162,7 +159,6 @@ const BentoCard = ({ item, index }: { item: any; index: number }) => {
             whileHover={{ y: -5 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className={cn("h-full", getGridClass())}
-            onHoverStart={() => setIsHovered(true)}
             onHoverEnd={handleMouseLeave}
             onMouseMove={handleMouseMove}
             style={{
@@ -282,7 +278,7 @@ export default function ProjectsBentoGrid() {
                     className="grid md:grid-cols-3 gap-6 auto-rows-[minmax(240px,auto)]"
                 >
                     {projects.map((project, index) => (
-                        <BentoCard key={`${project.title}-${index}-${project.link}`} item={project} index={index} />
+                        <BentoCard key={`${project.title}-${index}-${project.link}`} item={project} />
                     ))}
                 </motion.div>
             </div>

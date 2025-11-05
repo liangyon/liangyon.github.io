@@ -1,6 +1,6 @@
 "use client";
 
-import { portfolioData } from "@/data/portfolioData";
+import { portfolioData, type ExperienceItem } from "@/data/portfolioData";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import {
@@ -11,7 +11,6 @@ import {
 } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -36,8 +35,7 @@ const staggerContainer: Variants = {
     },
 };
 
-const BentoCard = ({ item, index }: { item: any; index: number }) => {
-    const [isHovered, setIsHovered] = useState(false);
+const BentoCard = ({ item }: { item: ExperienceItem }) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     const rotateX = useTransform(y, [-100, 100], [2, -2]);
@@ -58,7 +56,6 @@ const BentoCard = ({ item, index }: { item: any; index: number }) => {
     function handleMouseLeave() {
         x.set(0);
         y.set(0);
-        setIsHovered(false);
     }
 
     const getGridClass = () => {
@@ -77,7 +74,6 @@ const BentoCard = ({ item, index }: { item: any; index: number }) => {
             whileHover={{ y: -5 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className={cn("h-full", getGridClass())}
-            onHoverStart={() => setIsHovered(true)}
             onHoverEnd={handleMouseLeave}
             onMouseMove={handleMouseMove}
             style={{
@@ -188,7 +184,7 @@ export default function ExperienceBentoGrid() {
                     className="grid md:grid-cols-2 gap-6 auto-rows-[minmax(200px,auto)]"
                 >
                     {experiences.map((experience, index) => (
-                        <BentoCard key={`${experience.company}-${experience.date}-${index}`} item={experience} index={index} />
+                        <BentoCard key={`${experience.company}-${experience.date}-${index}`} item={experience} />
                     ))}
                 </motion.div>
             </div>
