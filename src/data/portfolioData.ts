@@ -109,11 +109,11 @@ What excites me most? The moment when clean, efficient code transforms into some
         size: 'lg',
         feature: 'spotlight',
         spotlightItems: [
-          'Real-time task tracking & analytics',
-          'Gamification with XP & achievements',
-          'AWS serverless deployment',
-          'Automated productivity insights',
-          'Full-stack TypeScript & Python'
+          'Raise a virtual pet that grows as you complete goals',
+          'Do tasks → earn XP, achievements & evolution milestones',
+          'Real-time progress updates via Redis Streams on AWS',
+          'Automated rewards & visual feedback to boost motivation',
+          'Full-stack: FastAPI + Next.js with PostgreSQL persistence'
         ]
       },
       {
